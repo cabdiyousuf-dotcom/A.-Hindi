@@ -1,0 +1,29 @@
+/* Small custom touches that go beyond Tailwind utilities */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.font-serif-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.timeline-item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 0.4rem;
+  top: 1.6rem;
+  bottom: -1.5rem;
+  width: 1px;
+  background: rgb(180 165 140 / 0.5);
+}
+
+::selection {
+  background: rgb(180 148 90 / 0.35);
+}

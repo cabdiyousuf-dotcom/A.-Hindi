@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to the journal — Abdi Yousuf</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: {
+            50: '#f3f5f7', 100: '#e3e8ee', 200: '#c3cedb',
+            300: '#9caebe', 400: '#70859c', 500: '#526379',
+            600: '#3f4d61', 700: '#333f50', 800: '#232c39',
+            900: '#161c25', 950: '#0d1117'
+          },
+          cream: {
+            50: '#fdfbf6', 100: '#f8f2e6', 200: '#f0e5cd',
+            300: '#e5d3ab', 400: '#d6ba7d'
+          },
+          gold: {
+            400: '#c6a35f', 500: '#b4925a', 600: '#977a49'
+          }
+        },
+        fontFamily: {
+          serif: ['"Playfair Display"', 'Georgia', 'serif'],
+          sans: ['Inter', 'system-ui', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="bg-cream-50 text-ink-800 antialiased">
+
+  <header class="sticky top-0 z-50 bg-cream-50/90 backdrop-blur border-b border-ink-100">
+    <nav class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="../../index.html" class="font-serif-display text-lg font-semibold text-ink-900 tracking-tight">Abdi Yousuf</a>
+      <a href="../index.html" class="text-sm font-medium text-ink-600 hover:text-gold-600 transition-colors">&larr; Journal</a>
+    </nav>
+  </header>
+
+  <article class="max-w-2xl mx-auto px-6 py-16">
+    <p class="uppercase tracking-[0.2em] text-xs font-semibold text-gold-600 mb-3">Draft</p>
+    <h1 class="font-serif-display text-4xl font-semibold text-ink-900 mb-6 leading-tight">Welcome to the journal</h1>
+    <div class="prose-none space-y-5 text-ink-700 leading-relaxed text-[1.05rem]">
+      <p><em>This is a placeholder first post — replace it with your own words before publishing.</em></p>
+      <p>
+        For twenty years my writing has mostly lived inside government memos,
+        donor reports, and program plans. This is a different kind of writing —
+        slower, more personal, and closer to the ground than a policy brief
+        usually allows.
+      </p>
+      <p>
+        I'm starting this journal to think in public about the things I've spent
+        my career on: humanitarian coordination, state-building, employment and
+        settlement services, and what "development" actually looks like when
+        you're the one implementing it, not just funding it or writing about it
+        from a distance.
+      </p>
+      <p>
+        Expect essays on Somali governance and the Horn of Africa, field notes
+        from Toronto's settlement sector, and the occasional personal reflection
+        that doesn't fit neatly into either category.
+      </p>
+    </div>
+  </article>
+
+  <footer class="border-t border-ink-100 py-10">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-ink-500">
+      <p>&copy; <span id="year"></span> Abdi Yousuf. All rights reserved.</p>
+      <p>Toronto, Ontario</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
