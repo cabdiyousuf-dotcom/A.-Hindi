@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Journal — Abdi Yousuf</title>
 <meta name="description" content="Essays and field notes on governance, humanitarian work, and development in Somalia and the Horn of Africa.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23161c25'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' fill='%23c6a35f' text-anchor='middle'%3EAY%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Abdi Yousuf">
+<meta property="og:title" content="Journal — Abdi Yousuf">
+<meta property="og:description" content="Essays and field notes on governance, humanitarian work, and development in Somalia and the Horn of Africa.">
+<meta property="og:url" content="https://cabdiyousuf-dotcom.github.io/A.-Hindi/blog/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Journal — Abdi Yousuf">
+<meta name="twitter:description" content="Essays and field notes on governance, humanitarian work, and development in Somalia and the Horn of Africa.">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
@@ -40,13 +49,24 @@
   <header class="sticky top-0 z-50 bg-cream-50/90 backdrop-blur border-b border-ink-100">
     <nav class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="../index.html" class="font-serif-display text-lg font-semibold text-ink-900 tracking-tight">Abdi Yousuf</a>
-      <div class="flex items-center gap-8 text-sm font-medium text-ink-600">
+      <div class="hidden sm:flex items-center gap-8 text-sm font-medium text-ink-600">
         <a href="../index.html#about" class="hover:text-gold-600 transition-colors">About</a>
-        <a href="../index.html#experience" class="hidden sm:inline hover:text-gold-600 transition-colors">Experience</a>
+        <a href="../index.html#experience" class="hover:text-gold-600 transition-colors">Experience</a>
         <a href="index.html" class="text-gold-600">Journal</a>
         <a href="../index.html#contact" class="hover:text-gold-600 transition-colors">Contact</a>
       </div>
+      <button id="menu-btn" class="sm:hidden text-ink-700" aria-label="Open menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
     </nav>
+    <div id="mobile-menu" class="hidden sm:hidden border-t border-ink-100 px-6 py-4 flex flex-col gap-4 text-sm font-medium text-ink-600 bg-cream-50">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="index.html" class="text-gold-600">Journal</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
   </header>
 
   <section class="max-w-3xl mx-auto px-6 pt-16 pb-8">
@@ -80,6 +100,11 @@
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>
