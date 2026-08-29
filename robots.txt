@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# The khatumo.net archive - 172 recovered articles, 2012-2016
+Sitemap: https://cabdiyousuf-dotcom.github.io/A.-Hindi/sitemap.xml
