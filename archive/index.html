@@ -49,7 +49,7 @@
       <div class="flex flex-wrap gap-x-10 gap-y-3 text-sm">
         <div><span class="block text-2xl font-serif-display text-gold-400">172</span><span class="text-ink-300">entries</span></div>
         <div><span class="block text-2xl font-serif-display text-gold-400">127,487</span><span class="text-ink-300">words</span></div>
-        <div><span class="block text-2xl font-serif-display text-gold-400">12</span><span class="text-ink-300">named contributors</span></div>
+        <div><span class="block text-2xl font-serif-display text-gold-400">8</span><span class="text-ink-300">named contributors</span></div>
         <div><span class="block text-2xl font-serif-display text-gold-400">2012&ndash;2016</span><span class="text-ink-300">span</span></div>
       </div>
     </div>
@@ -117,12 +117,36 @@
 
     <div class="mt-8">
       <h2 class="font-serif-display text-lg text-ink-900 mb-3">Contributors by entry count</h2>
-      <ul class="text-sm"><li class="flex justify-between gap-4 py-1.5 border-b border-ink-100/70"><span class="text-ink-700">A.Hindi</span><span class="text-ink-400 tabular-nums">43</span></li><li class="flex justify-between gap-4 py-1.5 border-b border-ink-100/70"><span class="text-ink-700">A. Hindi</span><span class="text-ink-400 tabular-nums">19</span></li><li class="flex justify-between gap-4 py-1.5 border-b border-ink-100/70"><span class="text-ink-700">Osman Badawi</span><span class="text-ink-400 tabular-nums">5</span></li><li class="flex justify-between gap-4 py-1.5 border-b border-ink-100/70"><span class="text-ink-700">Osman Hassan</span><span class="text-ink-400 tabular-nums">3</span></li><li class="flex justify-between gap-4 py-1.5 border-b border-ink-100/70"><span class="text-ink-700">A Hindi</span><span class="text-ink-400 tabular-nums">2</span></li><li class="flex justify-between gap-4 py-1.5 border-b border-ink-100/70"><span class="text-ink-700">H.H.Abdi</span><span class="text-ink-400 tabular-nums">1</span></li><li class="flex justify-between gap-4 py-1.5 border-b border-ink-100/70"><span class="text-ink-700">Khatumo State of Somalia Diaspora</span><span class="text-ink-400 tabular-nums">1</span></li><li class="flex justify-between gap-4 py-1.5 border-b border-ink-100/70"><span class="text-ink-700">M.M.H.Barre</span><span class="text-ink-400 tabular-nums">1</span></li></ul>
+      <ul class="text-sm"><li class="flex justify-between gap-4 py-1.5 border-b border-ink-100/70"><span class="text-ink-700">A. Hindi</span><span class="text-ink-400 tabular-nums">64</span></li><li class="flex justify-between gap-4 py-1.5 border-b border-ink-100/70"><span class="text-ink-700">Osman Hassan</span><span class="text-ink-400 tabular-nums">9</span></li><li class="flex justify-between gap-4 py-1.5 border-b border-ink-100/70"><span class="text-ink-700">Haboon H. Abdi</span><span class="text-ink-400 tabular-nums">1</span></li><li class="flex justify-between gap-4 py-1.5 border-b border-ink-100/70"><span class="text-ink-700">Khatumo State of Somalia Diaspora</span><span class="text-ink-400 tabular-nums">1</span></li><li class="flex justify-between gap-4 py-1.5 border-b border-ink-100/70"><span class="text-ink-700">M.M.H.Barre</span><span class="text-ink-400 tabular-nums">1</span></li><li class="flex justify-between gap-4 py-1.5 border-b border-ink-100/70"><span class="text-ink-700">Dr. Michael A. Weinstein</span><span class="text-ink-400 tabular-nums">1</span></li><li class="flex justify-between gap-4 py-1.5 border-b border-ink-100/70"><span class="text-ink-700">Ali Hadji Iggeh</span><span class="text-ink-400 tabular-nums">1</span></li><li class="flex justify-between gap-4 py-1.5 border-b border-ink-100/70"><span class="text-ink-700">Abdul Ghelleh</span><span class="text-ink-400 tabular-nums">1</span></li></ul>
       <p class="text-xs text-ink-400 mt-3">Entries published without a byline are listed as such in the index below.</p>
     </div>
   </section>
 
   <section class="max-w-3xl mx-auto px-6 pb-24">
+        <div class="pt-10" id="searchbox">
+      <label for="q" class="sr-only">Search the archive</label>
+      <div class="relative">
+        <svg class="absolute left-3 top-1/2 -translate-y-1/2 text-ink-400" xmlns="http://www.w3.org/2000/svg"
+             width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input id="q" type="search" autocomplete="off" spellcheck="false"
+               placeholder="Search all 172 entries by word, name or phrase&hellip;"
+               class="w-full pl-10 pr-24 py-3 rounded-md border border-ink-200 bg-white text-ink-800
+                      placeholder-ink-400 text-sm focus:outline-none focus:border-gold-500
+                      focus:ring-1 focus:ring-gold-400">
+        <button id="qclear" hidden
+                class="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-medium text-ink-500 hover:text-gold-600">
+          Clear
+        </button>
+      </div>
+      <p id="qstatus" class="text-xs text-ink-500 mt-2" hidden></p>
+    </div>
+
+    <div id="results" hidden class="pt-6"></div>
+
+    <div id="yearlist">
     
       <div class="pt-10" id="y2016">
         <h2 class="font-serif-display text-2xl font-semibold text-ink-900 mb-1">2016</h2>
@@ -134,7 +158,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Jan 11</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">SSC Community of TORONTO Celebrate 4th Anniversary of Khatumo Administration</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">237 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">237 words</span></p>
                 </div>
               </div>
             </a>
@@ -161,7 +185,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Sep 26</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Puntland’s butchery in the belly of Sool Region ! (Khatumo Press Release)</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">518 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">518 words</span></p>
                 </div>
               </div>
             </a>
@@ -194,7 +218,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Jul 22</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">New UK Ambassador acknowledges Khatumo State’s rightful place in Somalia</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">161 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">161 words</span></p>
                 </div>
               </div>
             </a>
@@ -205,7 +229,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Jul 4</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Khatumo Soccer team advances to the final round of Toronto’s Somali Youth Soccer Championships</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">157 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">157 words</span></p>
                 </div>
               </div>
             </a>
@@ -216,7 +240,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Jun 27</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">USA reports: Somalila​nd Faction’s Human Rights Violations In Regions of Khatumo State of Somalia.</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">593 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">593 words</span></p>
                 </div>
               </div>
             </a>
@@ -227,7 +251,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Jun 27</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">WikiLeaks: Saudi interest in Khatumo Administration amid Somalia’s local State formation struggles.</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">299 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">299 words</span></p>
                 </div>
               </div>
             </a>
@@ -260,7 +284,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Feb 20</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Loss of Abdifatah Khalif Badiye and Mohamed M. Duale to the Mayhem that is Mogadishu</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">248 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">248 words</span></p>
                 </div>
               </div>
             </a>
@@ -271,7 +295,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Feb 12</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Khatumo Community of Toronto Celebrate 3rd Anniversary of Khatumo Administration</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">555 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">555 words</span></p>
                 </div>
               </div>
             </a>
@@ -315,7 +339,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Jan 4</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">VOTE: Khatumo Person of the Year 2014. Waa kuma “Darwiishkii” Sanadka 2014 !</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">800 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">800 words</span></p>
                 </div>
               </div>
             </a>
@@ -342,7 +366,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Dec 21</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">NDP’s Faisal Hassan, running for Etobicoke North nomination</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">631 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">631 words</span></p>
                 </div>
               </div>
             </a>
@@ -375,7 +399,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Dec 3</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Former Khatumo President arrives in Toronto Canada</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">90 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">90 words</span></p>
                 </div>
               </div>
             </a>
@@ -386,7 +410,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Nov 26</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">1st anniversary of Nov. 28 mass murder of Khatumo Civilians in Taleh; Lest we forget</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">548 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">548 words</span></p>
                 </div>
               </div>
             </a>
@@ -452,7 +476,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Aug 28</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Somaliland Militia attacks Khatumo’s Inauguration event in Sahdheer</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">347 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">347 words</span></p>
                 </div>
               </div>
             </a>
@@ -485,7 +509,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Jun 15</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Somaliland Militia attacks Sah-dheer and Dharkayn, killing dozens of local SSC Khatumo residents</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">771 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">771 words</span></p>
                 </div>
               </div>
             </a>
@@ -496,7 +520,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Jun 12</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">The Return of the Bully: Once again Somaliland Militia terrorizes Historic Taleh</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">525 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">525 words</span></p>
                 </div>
               </div>
             </a>
@@ -507,7 +531,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Jun 8</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Now officially open in Taleh City, Ladies and Gentlemen: Say hello to Khatumo III Conference and Elections 2014</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,181 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,181 words</span></p>
                 </div>
               </div>
             </a>
@@ -540,7 +564,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Apr 10</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">The boys of Kalshaale celebrate the historic landing of first airplane in Buhodle City</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">390 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">390 words</span></p>
                 </div>
               </div>
             </a>
@@ -573,7 +597,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Mar 1</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">The Reason Behind Creating Tribal Federal States in Somalia!!</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">H.H.Abdi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,026 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">Haboon H. Abdi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,026 words</span></p>
                 </div>
               </div>
             </a>
@@ -628,7 +652,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Jan 24</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Khatumo Torontonians Celebrates 2nd. Anniversary of Khatumo State of Somalia</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">461 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">461 words</span></p>
                 </div>
               </div>
             </a>
@@ -639,7 +663,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Jan 19</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">An Open Letter to Abdiweli Mohamed Ali Gas. President-elect of Puntland</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,085 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,085 words</span></p>
                 </div>
               </div>
             </a>
@@ -655,7 +679,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Dec 22</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Starting 01.11. 2014 You can send your money from Toronto to: Taleh, Buhodle, Boame and all SSC Khatumo Region</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">151 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">151 words</span></p>
                 </div>
               </div>
             </a>
@@ -699,7 +723,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Dec 6</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Watch how Khatumo’s Taleh was sprayed with Bullets from Puntland Armed Forces</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">251 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">251 words</span></p>
                 </div>
               </div>
             </a>
@@ -765,7 +789,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Nov 29</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Tragedy in Taleh: Puntland forces massacre dozens of Khatumo civilians</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">564 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">564 words</span></p>
                 </div>
               </div>
             </a>
@@ -776,7 +800,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Nov 29</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Letter of Condemnation: The ruthless massacre in Taleh by Faroole’s brutal butchers</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">707 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">707 words</span></p>
                 </div>
               </div>
             </a>
@@ -787,7 +811,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Nov 27</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Puntland attacks Khaatumo delegates on their way to the Khaatumo III Conference</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">251 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">251 words</span></p>
                 </div>
               </div>
             </a>
@@ -842,7 +866,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Oct 25</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Here Comes Khaatumo 3 Conference ! Long Live Somali Unity</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">Osman H</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,429 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">Osman Hassan</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,429 words</span></p>
                 </div>
               </div>
             </a>
@@ -853,7 +877,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Oct 23</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Ladies and Gentelmen, Say hello to the new candidate of Khatumo State Presidency</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">97 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">97 words</span></p>
                 </div>
               </div>
             </a>
@@ -864,7 +888,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Oct 23</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Watch Khatumo III opening ceremonies:</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">45 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">45 words</span></p>
                 </div>
               </div>
             </a>
@@ -875,7 +899,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Oct 21</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Khatumo III Conference to open in Taleh, more delegates to arrive this afternoon</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">172 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">172 words</span></p>
                 </div>
               </div>
             </a>
@@ -886,7 +910,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Oct 19</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">SSC people drive their Khatumo train towards its destination in Taleh City.</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">798 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">798 words</span></p>
                 </div>
               </div>
             </a>
@@ -897,7 +921,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Oct 16</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Head of Security for Khatumo III Conference arrives in Taleh City</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">324 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">324 words</span></p>
                 </div>
               </div>
             </a>
@@ -919,7 +943,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Oct 7</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">The “People” of Khatumo have spoken: We are going to the Conference Khatumo III Taleh.</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">76 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">76 words</span></p>
                 </div>
               </div>
             </a>
@@ -952,7 +976,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Sep 27</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">General Director of Khatumo Interior Ministry, Honorable Mohamoud speaks out</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">343 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">343 words</span></p>
                 </div>
               </div>
             </a>
@@ -1051,7 +1075,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Aug 16</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Unlocking the Khatumo Heavens ! by: A.Hindi</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,100 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,100 words</span></p>
                 </div>
               </div>
             </a>
@@ -1073,7 +1097,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Aug 10</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Preparations for Khatumo 3.0 in full steam as transitional period ends</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">640 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">640 words</span></p>
                 </div>
               </div>
             </a>
@@ -1084,7 +1108,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Aug 5</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">To resolve or not to resolve, that is the question in Buhodle and Lasanod’s recent murder cases</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,133 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,133 words</span></p>
                 </div>
               </div>
             </a>
@@ -1106,7 +1130,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Jul 27</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Federalism and Somalia</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,177 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,177 words</span></p>
                 </div>
               </div>
             </a>
@@ -1150,7 +1174,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Jul 14</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">End of era as Khatumo State transitions to a more efficient and permanent administration</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">822 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">822 words</span></p>
                 </div>
               </div>
             </a>
@@ -1161,7 +1185,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Jul 9</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">This summer: Just come to upcoming conference in Taleh city and see how Khatumo State has never been more united</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,181 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,181 words</span></p>
                 </div>
               </div>
             </a>
@@ -1205,7 +1229,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Jun 26</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Khatumo continues to inspire the hearts and minds of Somalis everywhere</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">138 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">138 words</span></p>
                 </div>
               </div>
             </a>
@@ -1282,7 +1306,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Jun 2</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Jubbaland community in Toronto celebrate the formation of their new provincial State in south central Somalia</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,042 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,042 words</span></p>
                 </div>
               </div>
             </a>
@@ -1414,7 +1438,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">May 4</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Welcome the new President and Commander in Chief of the Armed Forces of United Somali Party (USP).</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">127 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">127 words</span></p>
                 </div>
               </div>
             </a>
@@ -1436,7 +1460,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Apr 30</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Oil deal with Somaliland: a collossal mistake and a looming disaster for DNO !</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">Osman Badawi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">436 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">Osman Hassan</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">436 words</span></p>
                 </div>
               </div>
             </a>
@@ -1458,7 +1482,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Apr 25</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Watch: Khatumo Awdal and Makhir:United Somali Party-USP</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">134 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">134 words</span></p>
                 </div>
               </div>
             </a>
@@ -1469,7 +1493,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Apr 21</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">The price of liberty and freedom just right for this Khatumo city’s economy</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">218 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">218 words</span></p>
                 </div>
               </div>
             </a>
@@ -1480,7 +1504,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Apr 14</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Khatumo, Awdal and Makhir re-ignite an even bolder “United Somali Party” (USP): promised to bring Somalia 2.0</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">888 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">888 words</span></p>
                 </div>
               </div>
             </a>
@@ -1524,7 +1548,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Mar 15</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">A Message to Khatumo Youth in the Diaspora. Watch some of the speeches at the 1st Anniversary of Khatumo TORONTO.</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,925 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,925 words</span></p>
                 </div>
               </div>
             </a>
@@ -1645,7 +1669,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Jan 2</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Somaliland occupying militia gang-rape 13-year old girl in Sool</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">Osman Badawi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">760 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">Osman Hassan</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">760 words</span></p>
                 </div>
               </div>
             </a>
@@ -1683,7 +1707,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Dec 15</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">PM Saacid’s Shameful Silence on Somaliland’s Aggression</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">Osman Badawi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">957 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">Osman Hassan</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">957 words</span></p>
                 </div>
               </div>
             </a>
@@ -1694,7 +1718,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Oct 29</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Lascanod more than Kismayo deserves the President’s attention</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">Osman Badawi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,003 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">Osman Hassan</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">1,003 words</span></p>
                 </div>
               </div>
             </a>
@@ -1782,7 +1806,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Jun 22</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Somali leaders approve draft constitution</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">A.Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">127 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">A. Hindi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">127 words</span></p>
                 </div>
               </div>
             </a>
@@ -1793,7 +1817,7 @@
                 <span class="text-xs text-ink-400 w-14 flex-shrink-0 tabular-nums">Jun 18</span>
                 <div class="min-w-0">
                   <h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">Somaliland and Puntland Joint attack on Khaatumo State territory</h3>
-                  <p class="text-xs mt-1"><span class="text-ink-600">Osman Badawi</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">642 words</span></p>
+                  <p class="text-xs mt-1"><span class="text-ink-600">Osman Hassan</span> <span class="text-ink-300 mx-1">·</span> <span class="text-ink-400">642 words</span></p>
                 </div>
               </div>
             </a>
@@ -2041,6 +2065,7 @@
             </a>
           </li>        </ul>
       </div>
+    </div>
   </section>
 
   <footer class="border-t border-ink-100 py-10">
@@ -2049,6 +2074,95 @@
       <p>Toronto, Ontario</p>
     </div>
   </footer>
+  <script>
+  (function () {
+    var input = document.getElementById('q'),
+        clear = document.getElementById('qclear'),
+        status = document.getElementById('qstatus'),
+        results = document.getElementById('results'),
+        years = document.getElementById('yearlist'),
+        idx = null, loading = false, timer = null;
+
+    function esc(s) {
+      return s.replace(/[&<>"]/g, function (c) {
+        return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c];
+      });
+    }
+
+    function load(cb) {
+      if (idx) { cb(); return; }
+      if (loading) return;
+      loading = true;
+      status.hidden = false;
+      status.textContent = 'Loading the index…';
+      fetch('search-index.json')
+        .then(function (r) { return r.json(); })
+        .then(function (d) { idx = d; loading = false; cb(); })
+        .catch(function () {
+          loading = false;
+          status.textContent = 'Could not load the search index.';
+        });
+    }
+
+    function snippet(text, terms) {
+      var low = text.toLowerCase(), at = -1, term = '';
+      for (var i = 0; i < terms.length; i++) {
+        var p = low.indexOf(terms[i]);
+        if (p > -1 && (at === -1 || p < at)) { at = p; term = terms[i]; }
+      }
+      if (at === -1) return esc(text.slice(0, 200)) + '…';
+      var start = Math.max(0, at - 90), end = Math.min(text.length, at + 150);
+      var frag = esc(text.slice(start, end));
+      terms.forEach(function (t) {
+        if (!t) return;
+        frag = frag.replace(new RegExp('(' + t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig'),
+                            '<mark class="bg-cream-300 text-ink-900 rounded-sm px-0.5">$1</mark>');
+      });
+      return (start > 0 ? '…' : '') + frag + (end < text.length ? '…' : '');
+    }
+
+    function run() {
+      var q = input.value.trim();
+      clear.hidden = !q;
+      if (!q) {
+        results.hidden = true; results.innerHTML = '';
+        if (years) years.hidden = false;
+        status.hidden = true;
+        return;
+      }
+      load(function () {
+        var terms = q.toLowerCase().split(/\s+/).filter(Boolean);
+        var hits = idx.filter(function (a) {
+          var hay = (a.t + ' ' + a.a + ' ' + a.x).toLowerCase();
+          return terms.every(function (t) { return hay.indexOf(t) > -1; });
+        });
+        if (years) years.hidden = true;
+        results.hidden = false;
+        status.hidden = false;
+        status.textContent = hits.length
+          ? hits.length + (hits.length === 1 ? ' entry matches ' : ' entries match ') + '“' + q + '”'
+          : 'Nothing matches “' + q + '”';
+        hits.sort(function (a, b) { return (b.y || 0) - (a.y || 0); });
+        results.innerHTML = hits.slice(0, 80).map(function (a) {
+          var meta = (a.a ? esc(a.a) : '<span class="text-ink-400 italic">no byline</span>')
+                   + (a.d ? ' <span class="text-ink-300">·</span> ' + esc(a.d) : '');
+          return '<a href="posts/' + a.s + '.html" class="block py-5 border-b border-ink-100 group">'
+               + '<h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">'
+               + esc(a.t) + '</h3>'
+               + '<p class="text-xs mt-1 text-ink-600">' + meta + '</p>'
+               + '<p class="text-sm text-ink-600 mt-2 leading-relaxed">' + snippet(a.x, terms) + '</p></a>';
+        }).join('')
+        + (hits.length > 80 ? '<p class="text-xs text-ink-500 py-4">Showing the first 80 of ' + hits.length + '.</p>' : '');
+      });
+    }
+
+    input.addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(run, 160); });
+    input.addEventListener('keydown', function (e) { if (e.key === 'Escape') { input.value = ''; run(); } });
+    clear.addEventListener('click', function () { input.value = ''; input.focus(); run(); });
+    if (input.value) run();
+  })();
+  </script>
+
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
