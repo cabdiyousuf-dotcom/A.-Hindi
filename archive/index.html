@@ -132,8 +132,8 @@
           <circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
         <input id="q" type="search" autocomplete="off" spellcheck="false"
-               placeholder="Search all 172 entries by word, name or phrase&hellip;"
-               class="w-full pl-10 pr-24 py-3 rounded-md border border-ink-200 bg-white text-ink-800
+               placeholder="Search by article name&hellip;"
+               class="w-full pl-10 pr-20 py-3 rounded-md border border-ink-200 bg-white text-ink-800
                       placeholder-ink-400 text-sm focus:outline-none focus:border-gold-500
                       focus:ring-1 focus:ring-gold-400">
         <button id="qclear" hidden
@@ -141,10 +141,29 @@
           Clear
         </button>
       </div>
-      <p id="qstatus" class="text-xs text-ink-500 mt-2" hidden></p>
+
+      <div class="flex flex-wrap items-center gap-x-2 gap-y-2 mt-3">
+        <span class="text-xs text-ink-500 mr-1">Search in</span>
+        <button type="button" data-mode="title"
+                class="qmode px-3 py-1.5 rounded-full border text-xs font-medium transition-colors
+                       border-gold-500 bg-gold-500 text-white">
+          Article names
+        </button>
+        <button type="button" data-mode="all"
+                class="qmode px-3 py-1.5 rounded-full border text-xs font-medium transition-colors
+                       border-ink-200 bg-white text-ink-600 hover:border-gold-400">
+          Full text of every article
+        </button>
+        <button type="button" id="qlist"
+                class="ml-auto px-3 py-1.5 rounded-full border border-ink-200 bg-white text-xs
+                       font-medium text-ink-600 hover:border-gold-400 transition-colors">
+          List all 172 names A&ndash;Z
+        </button>
+      </div>
+      <p id="qstatus" class="text-xs text-ink-500 mt-3" hidden></p>
     </div>
 
-    <div id="results" hidden class="pt-6"></div>
+    <div id="results" hidden class="pt-4"></div>
 
     <div id="yearlist">
     
@@ -2076,90 +2095,144 @@
   </footer>
   <script>
   (function () {
-    var input = document.getElementById('q'),
-        clear = document.getElementById('qclear'),
-        status = document.getElementById('qstatus'),
+    var input   = document.getElementById('q'),
+        clear   = document.getElementById('qclear'),
+        status  = document.getElementById('qstatus'),
         results = document.getElementById('results'),
-        years = document.getElementById('yearlist'),
-        idx = null, loading = false, timer = null;
+        years   = document.getElementById('yearlist'),
+        listBtn = document.getElementById('qlist'),
+        modes   = [].slice.call(document.querySelectorAll('.qmode')),
+        idx = null, loading = false, timer = null, mode = 'title', listing = false;
+
+    var ON  = 'border-gold-500 bg-gold-500 text-white',
+        OFF = 'border-ink-200 bg-white text-ink-600 hover:border-gold-400';
 
     function esc(s) {
-      return s.replace(/[&<>"]/g, function (c) {
+      return String(s).replace(/[&<>"]/g, function (c) {
         return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c];
       });
     }
+    function rx(t) { return t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
     function load(cb) {
       if (idx) { cb(); return; }
       if (loading) return;
       loading = true;
-      status.hidden = false;
-      status.textContent = 'Loading the index…';
-      fetch('search-index.json')
-        .then(function (r) { return r.json(); })
+      status.hidden = false; status.textContent = 'Loading…';
+      fetch('search-index.json').then(function (r) { return r.json(); })
         .then(function (d) { idx = d; loading = false; cb(); })
-        .catch(function () {
-          loading = false;
-          status.textContent = 'Could not load the search index.';
-        });
+        .catch(function () { loading = false; status.textContent = 'Could not load the index.'; });
+    }
+
+    function mark(s, terms) {
+      terms.forEach(function (t) {
+        if (t) s = s.replace(new RegExp('(' + rx(t) + ')', 'ig'),
+                             '<mark class="bg-cream-300 text-ink-900 rounded-sm px-0.5">$1</mark>');
+      });
+      return s;
     }
 
     function snippet(text, terms) {
-      var low = text.toLowerCase(), at = -1, term = '';
-      for (var i = 0; i < terms.length; i++) {
-        var p = low.indexOf(terms[i]);
-        if (p > -1 && (at === -1 || p < at)) { at = p; term = terms[i]; }
-      }
-      if (at === -1) return esc(text.slice(0, 200)) + '…';
-      var start = Math.max(0, at - 90), end = Math.min(text.length, at + 150);
-      var frag = esc(text.slice(start, end));
-      terms.forEach(function (t) {
-        if (!t) return;
-        frag = frag.replace(new RegExp('(' + t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig'),
-                            '<mark class="bg-cream-300 text-ink-900 rounded-sm px-0.5">$1</mark>');
+      var low = text.toLowerCase(), at = -1;
+      terms.forEach(function (t) { var p = low.indexOf(t); if (p > -1 && (at === -1 || p < at)) at = p; });
+      if (at === -1) return '';
+      var a = Math.max(0, at - 90), b = Math.min(text.length, at + 150);
+      return (a > 0 ? '…' : '') + mark(esc(text.slice(a, b)), terms) + (b < text.length ? '…' : '');
+    }
+
+    function row(a, terms, showSnippet) {
+      var meta = (a.a ? esc(a.a) : '<span class="text-ink-400 italic">no byline</span>')
+               + (a.d ? ' <span class="text-ink-300">·</span> ' + esc(a.d) : '');
+      var snip = showSnippet ? snippet(a.x, terms) : '';
+      return '<a href="posts/' + a.s + '.html" class="block py-4 border-b border-ink-100 group">'
+           + '<h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">'
+           + mark(esc(a.t), terms) + '</h3>'
+           + '<p class="text-xs mt-1 text-ink-600">' + meta + '</p>'
+           + (snip ? '<p class="text-sm text-ink-600 mt-2 leading-relaxed">' + snip + '</p>' : '')
+           + '</a>';
+    }
+
+    function showAll() {
+      load(function () {
+        listing = true;
+        input.value = ''; clear.hidden = true;
+        var sorted = idx.slice().sort(function (x, y) { return x.t.localeCompare(y.t); });
+        years.hidden = true; results.hidden = false;
+        status.hidden = false;
+        status.textContent = 'All ' + sorted.length + ' article names, A–Z. Press Escape to go back.';
+        var letter = '';
+        results.innerHTML = sorted.map(function (a) {
+          var L = (a.t[0] || '').toUpperCase(), head = '';
+          if (/[A-Z]/.test(L) && L !== letter) {
+            letter = L;
+            head = '<p class="font-serif-display text-2xl text-gold-600 pt-6 pb-1">' + L + '</p>';
+          }
+          return head + row(a, [], false);
+        }).join('');
       });
-      return (start > 0 ? '…' : '') + frag + (end < text.length ? '…' : '');
+    }
+
+    function reset() {
+      listing = false;
+      results.hidden = true; results.innerHTML = '';
+      years.hidden = false; status.hidden = true; clear.hidden = true;
     }
 
     function run() {
       var q = input.value.trim();
       clear.hidden = !q;
-      if (!q) {
-        results.hidden = true; results.innerHTML = '';
-        if (years) years.hidden = false;
-        status.hidden = true;
-        return;
-      }
+      if (!q) { reset(); return; }
       load(function () {
+        listing = false;
         var terms = q.toLowerCase().split(/\s+/).filter(Boolean);
         var hits = idx.filter(function (a) {
-          var hay = (a.t + ' ' + a.a + ' ' + a.x).toLowerCase();
+          var hay = mode === 'title' ? (a.t + ' ' + a.a).toLowerCase()
+                                     : (a.t + ' ' + a.a + ' ' + a.x).toLowerCase();
           return terms.every(function (t) { return hay.indexOf(t) > -1; });
         });
-        if (years) years.hidden = true;
-        results.hidden = false;
-        status.hidden = false;
+        // whole-phrase title matches first, then other title matches, then the rest
+        var ql = q.toLowerCase();
+        hits.sort(function (x, y) {
+          var xp = x.t.toLowerCase().indexOf(ql) > -1 ? 0 : 1,
+              yp = y.t.toLowerCase().indexOf(ql) > -1 ? 0 : 1;
+          if (xp !== yp) return xp - yp;
+          var xt = terms.every(function (t) { return x.t.toLowerCase().indexOf(t) > -1; }) ? 0 : 1,
+              yt = terms.every(function (t) { return y.t.toLowerCase().indexOf(t) > -1; }) ? 0 : 1;
+          if (xt !== yt) return xt - yt;
+          return (y.y || 0) - (x.y || 0);
+        });
+        years.hidden = true; results.hidden = false; status.hidden = false;
         status.textContent = hits.length
-          ? hits.length + (hits.length === 1 ? ' entry matches ' : ' entries match ') + '“' + q + '”'
-          : 'Nothing matches “' + q + '”';
-        hits.sort(function (a, b) { return (b.y || 0) - (a.y || 0); });
-        results.innerHTML = hits.slice(0, 80).map(function (a) {
-          var meta = (a.a ? esc(a.a) : '<span class="text-ink-400 italic">no byline</span>')
-                   + (a.d ? ' <span class="text-ink-300">·</span> ' + esc(a.d) : '');
-          return '<a href="posts/' + a.s + '.html" class="block py-5 border-b border-ink-100 group">'
-               + '<h3 class="font-serif-display text-lg text-ink-900 group-hover:text-gold-600 transition-colors leading-snug">'
-               + esc(a.t) + '</h3>'
-               + '<p class="text-xs mt-1 text-ink-600">' + meta + '</p>'
-               + '<p class="text-sm text-ink-600 mt-2 leading-relaxed">' + snippet(a.x, terms) + '</p></a>';
+          ? hits.length + (hits.length === 1 ? ' article' : ' articles')
+            + (mode === 'title' ? ' with “' + q + '” in the name' : ' mentioning “' + q + '”')
+          : (mode === 'title'
+              ? 'No article name contains “' + q + '”. Try searching the full text instead.'
+              : 'Nothing matches “' + q + '”');
+        results.innerHTML = hits.slice(0, 100).map(function (a) {
+          return row(a, terms, mode === 'all');
         }).join('')
-        + (hits.length > 80 ? '<p class="text-xs text-ink-500 py-4">Showing the first 80 of ' + hits.length + '.</p>' : '');
+        + (hits.length > 100 ? '<p class="text-xs text-ink-500 py-4">Showing the first 100 of ' + hits.length + '.</p>' : '');
       });
     }
 
-    input.addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(run, 160); });
-    input.addEventListener('keydown', function (e) { if (e.key === 'Escape') { input.value = ''; run(); } });
-    clear.addEventListener('click', function () { input.value = ''; input.focus(); run(); });
-    if (input.value) run();
+    modes.forEach(function (b) {
+      b.addEventListener('click', function () {
+        mode = b.dataset.mode;
+        modes.forEach(function (o) {
+          o.className = 'qmode px-3 py-1.5 rounded-full border text-xs font-medium transition-colors '
+                      + (o === b ? ON : OFF);
+        });
+        input.placeholder = mode === 'title'
+          ? 'Search by article name…' : 'Search inside every article…';
+        if (input.value.trim()) run();
+      });
+    });
+
+    listBtn.addEventListener('click', function () { listing ? reset() : showAll(); });
+    input.addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(run, 150); });
+    input.addEventListener('keydown', function (e) { if (e.key === 'Escape') { input.value = ''; reset(); } });
+    clear.addEventListener('click', function () { input.value = ''; input.focus(); reset(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && listing) reset(); });
   })();
   </script>
 
