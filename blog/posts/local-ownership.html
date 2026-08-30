@@ -109,6 +109,23 @@
         </div>
       </div>
     </aside>
+
+    <section id="responses" class="mt-14 pt-8 border-t border-ink-100" hidden>
+      <p class="uppercase tracking-[0.2em] text-xs font-semibold text-gold-600 mb-3">Responses</p>
+      <p class="text-sm text-ink-600 leading-relaxed">
+        Corrections, counter-arguments and first-hand accounts are welcome.
+        Comments are read before they appear.
+      </p>
+      <button id="responses-open" type="button" aria-expanded="false"
+              class="mt-4 inline-flex items-center text-sm font-medium text-gold-600 hover:text-gold-500 transition-colors">
+        Read and leave a response &rarr;
+      </button>
+      <div id="cusdis_thread" class="mt-8"
+           data-page-id="local-ownership"
+           data-page-url="https://cabdiyousuf-dotcom.github.io/A.-Hindi/blog/posts/local-ownership.html"
+           data-page-title="On local ownership and development"
+           data-theme="light" hidden></div>
+    </section>
 </article>
 
   <footer class="border-t border-ink-100 py-10">
@@ -120,5 +137,6 @@
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ee7eedcc96da49a2ac22dee600175acd"}'></script><!-- End Cloudflare Web Analytics -->
+  <script src="../../js/comments.js" defer></script>
 </body>
 </html>
