@@ -11,7 +11,7 @@
 (function () {
   'use strict';
 
-  var APP_ID = 'PASTE_CUSDIS_APP_ID_HERE';
+  var APP_ID = '24357256-ca8f-4fa3-b2ed-f7e94774fe38';
   var HOST   = 'https://cusdis.com';
 
   var section = document.getElementById('responses');
