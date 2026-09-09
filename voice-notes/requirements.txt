@@ -1,0 +1,10 @@
+# Stage 0 dependencies.
+#
+# faster-whisper runs Whisper locally (CTranslate2 backend, no PyTorch needed).
+# It bundles a Silero VAD, which is what lets us cut on silence instead of
+# on a fixed clock — see vn/transcribe.py.
+faster-whisper>=1.0.3
+
+# Structured meeting notes from the transcript.
+anthropic>=1.0.0
+pydantic>=2.7

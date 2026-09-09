@@ -1,0 +1,16 @@
+# Secrets — never commit
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Local recordings / notes, if VN_HOME is pointed inside the repo
+sessions/
+*.wav
+*.m4a
+*.mp3
+.pytest_cache/
