@@ -3,3 +3,4 @@ Allow: /
 
 # The khatumo.net archive - 172 recovered articles, 2012-2016
 Sitemap: https://abdiyousuf.com/sitemap.xml
+Sitemap: https://abdiyousuf.com/sitemap-additions.xml
