@@ -20,7 +20,14 @@
 .sitebar{background:var(--surface);border-bottom:1px solid var(--line);font-size:var(--s-label)}
 .sitebar .wrap{padding-block:10px;display:flex;justify-content:space-between;gap:12px;align-items:center}
 .sitebar a{text-decoration:none;font-weight:600;color:var(--ink-2)}.sitebar a:hover{color:var(--accent)}
-@media (max-width:640px){header.top .hgroup{padding-right:84px}}</style>
+@media (max-width:640px){header.top .hgroup{padding-right:84px}}
+.rider-slot{display:none}
+@media (min-width:1100px){
+  header.top .hgroup{flex:0 1 auto}
+  .rider-slot{display:flex;flex:1 1 140px;align-self:stretch;align-items:center;justify-content:center;min-width:140px}
+  header.top .rider-slot img{height:120px;width:auto;max-width:100%;filter:invert(1);opacity:.2}
+  :root[data-mode="dark"] header.top .rider-slot img{filter:none;opacity:.25}
+}</style>
 </head>
 <body>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -194,6 +201,7 @@ td.n{color:var(--ink-3);width:2.5em}
       <p class="sub" id="sub"></p>
       <div class="facts" id="facts"></div>
     </div>
+    <div class="rider-slot" aria-hidden="true"><img src="../images/darwiish-rider.png" alt=""></div>
     <div class="tools-r"><button class="pill" id="mode" type="button"></button></div>
   </header>
 
