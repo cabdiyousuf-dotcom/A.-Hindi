@@ -22,9 +22,9 @@
 <meta name="twitter:image" content="https://abdiyousuf.com/images/og-constitution-v2.jpg">
 <style>[hidden]:not([hidden=until-found i]){display:none!important}img{max-width:100%}
 .sitebar{background:var(--surface);border-bottom:1px solid var(--line);font-size:var(--s-label)}
-.sitebar .wrap{padding-block:10px;display:flex;justify-content:space-between;gap:12px;align-items:center}
-.sitebar a{text-decoration:none;font-weight:600;color:var(--ink-2)}.sitebar a:hover{color:var(--accent)}
-@media (max-width:640px){header.top .hgroup{padding-right:84px}}
+.sitebar .wrap{padding-block:0;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.sitebar a{display:inline-block;padding:11px 0;text-decoration:none;font-weight:600;color:var(--ink-2)}.sitebar a:hover{color:var(--accent)}
+@media (max-width:640px){header.top .hgroup{flex:1 1 100%;padding-right:0}}
 .rider-slot{display:none}
 @media (min-width:1100px){
   header.top .hgroup{flex:0 1 auto}
@@ -191,6 +191,19 @@ td.n{color:var(--ink-3);width:2.5em}
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--ground);padding:8px 16px;border-radius:999px;font-size:var(--s-label);font-weight:600;opacity:0;transition:opacity .2s;pointer-events:none}
 .toast.on{opacity:1}
 .foot{margin-top:40px;padding-top:16px;border-top:1px solid var(--line)}
+@media (max-width:640px){
+  .tbl table,.tbl tbody{display:block}
+  .tbl thead{display:none}
+  .tbl tr{display:grid;grid-template-columns:2em auto minmax(0,1fr);column-gap:8px;padding:10px 0;border-bottom:1px solid var(--line-2)}
+  .tbl td{border:0;padding:0}
+  .tbl td.n{grid-column:1;grid-row:1/span 2;width:auto}
+  .tbl td:nth-child(2){grid-column:2/4}
+  .tbl td:nth-child(3),.tbl td.sess{font-size:var(--s-label);color:var(--ink-3);margin-top:3px}
+  .tbl td:nth-child(3){grid-column:2}
+  .tbl td.sess{grid-column:3;white-space:normal}
+  .tbl td.sess::before{content:"\00b7\00a0"}
+  .topic{padding:7px 14px}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 
