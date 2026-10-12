@@ -354,7 +354,8 @@ function card(it,ts){
   const t1=lang==="so"?it.tso:it.ten, t2=lang==="both"?it.tso:"";
   const pg=it.pg?`<span class="pg">${UI[L].page} ${it.pg}</span>`:"";
   const cls=it.k==="pre"?"card pre":(it.id==="annex4"?"card trans":"card");
-  return `<article class="${cls}" id="${it.id}"><div class="c-head"><div><div class="lab">${lab}${pg}</div>
+  const dupe=!pg&&lab.trim().toLowerCase()===String(t1).trim().toLowerCase();
+  return `<article class="${cls}" id="${it.id}"><div class="c-head"><div>${dupe?"":`<div class="lab">${lab}${pg}</div>`}
     <h3 class="c-title">${hl(esc(t1),ts)}${t2?`<span class="alt">${hl(esc(t2),ts)}</span>`:""}</h3></div>
     <button class="pill copy" type="button" data-copy="${it.id}">${UI[L].copy}</button></div>${bodyHTML(it,ts)}${otherHits(it,ts)}</article>`;
 }
