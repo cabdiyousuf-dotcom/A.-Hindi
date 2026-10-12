@@ -433,13 +433,15 @@ function renderChrome(){
 function applyMode(){document.documentElement.setAttribute("data-mode",mode)}
 function full(){applyMode();renderChrome();render()}
 
+/* after a search or topic tap, bring the first result up to just under the sticky bar */
+function toResults(){const m=$("main"),b=document.querySelector(".bar");const y=m.getBoundingClientRect().top+window.scrollY-b.offsetHeight-12;window.scrollTo({top:Math.max(0,y)})}
 /* events */
 let tmr;
-$("q").addEventListener("input",e=>{q=e.target.value;clearTimeout(tmr);tmr=setTimeout(()=>{render();window.scrollTo({top:0})},120)});
+$("q").addEventListener("input",e=>{q=e.target.value;clearTimeout(tmr);tmr=setTimeout(()=>{render();toResults()},120)});
 $("clear").addEventListener("click",()=>{q="";$("q").value="";render();$("q").focus()});
 $("lang").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;lang=b.dataset.l;try{localStorage.setItem("nes-lang",lang)}catch(e){};const y=window.scrollY;full();window.scrollTo({top:y})});
 $("topics").addEventListener("click",e=>{const b=e.target.closest(".topic");if(!b)return;const i=+b.dataset.t;topic=topic===i?-1:i;
-  document.querySelectorAll(".topic").forEach(x=>x.setAttribute("aria-pressed",+x.dataset.t===topic));render();window.scrollTo({top:0})});
+  document.querySelectorAll(".topic").forEach(x=>x.setAttribute("aria-pressed",+x.dataset.t===topic));render();toResults()});
 $("mode").addEventListener("click",()=>{mode=mode==="dark"?"light":"dark";try{localStorage.setItem("nes-mode",mode)}catch(e){};applyMode();$("mode").textContent=mode==="dark"?UI[lang==="so"?"so":"en"].light:UI[lang==="so"?"so":"en"].dark});
 $("tocBtn").addEventListener("click",()=>$("toc").classList.toggle("open"));
 $("toc").addEventListener("click",e=>{if(e.target.closest("a")&&window.innerWidth<=900)$("toc").classList.remove("open")});
